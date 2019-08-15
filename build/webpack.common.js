@@ -23,7 +23,7 @@ module.exports = {
         new CleanWebpackPlugin(),
 
         new CopyWebpackPlugin([
-            'images/**',
+            'images/**/*',
             'node_modules/@webcomponents/webcomponentsjs/**',
             'manifest.webmanifest'
         ]),

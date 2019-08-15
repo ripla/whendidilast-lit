@@ -2,7 +2,8 @@ const path = require('path');
 module.exports = {
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   extends: [
-    'plugin:@typescript-eslint/recommended' // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    'plugin:prettier/recommended' // Disable rules that conflict with Prettier
   ],
   parserOptions: {
     project: path.resolve(__dirname, './tsconfig.json'),
