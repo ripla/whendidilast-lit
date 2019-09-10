@@ -3,24 +3,24 @@ import { UPDATE_OFFLINE } from "../actions/app";
 import { RootAction } from "../store";
 
 export interface AppState {
-    offline: boolean;
+  offline: boolean;
 }
 
 const INITIAL_STATE: AppState = {
-    offline: false,
-  };
+  offline: false
+};
 
 const app: Reducer<AppState, RootAction> = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case UPDATE_OFFLINE:
-            return {
-                ...state,
-                offline: action.offline
-            }
+  switch (action.type) {
+    case UPDATE_OFFLINE:
+      return {
+        ...state,
+        offline: action.offline
+      };
 
-        default:
-            return state;
-    }
-}
+    default:
+      return state;
+  }
+};
 
 export default app;

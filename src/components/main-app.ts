@@ -1,9 +1,9 @@
-import { LitElement, html, customElement } from 'lit-element';
-import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings.js';
+import { LitElement, html, customElement } from "lit-element";
+import { setPassiveTouchGestures } from "@polymer/polymer/lib/utils/settings.js";
 
-import './main-view'
+import "./main-view";
 
-@customElement('main-app')
+@customElement("main-app")
 class MainApp extends LitElement {
   render() {
     return html`

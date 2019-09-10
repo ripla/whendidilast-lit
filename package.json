@@ -12,7 +12,8 @@
     "build": "webpack --config build/webpack.prod.js",
     "serve": "serve -l 3000 dist",
     "test": "",
-    "check": "eslint src/**/*"
+    "check": "eslint src/**/*",
+    "check:fix": "eslint src/**/* --fix"
   },
   "dependencies": {
     "@polymer/iron-icon": "^3.0.1",

@@ -1,11 +1,10 @@
-import { LitElement, html, css, property, customElement } from 'lit-element';
+import { LitElement, html, css, property, customElement } from "lit-element";
 
-@customElement('title-view')
+@customElement("title-view")
 class TitleView extends LitElement {
-
-    render() {
-        return html`
-          <h1>When Did I Last...</h1>
-        `;
-    }
+  render() {
+    return html`
+      <h1>When Did I Last...</h1>
+    `;
+  }
 }

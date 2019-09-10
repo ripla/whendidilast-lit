@@ -1,6 +1,3 @@
-declare module '@vaadin/router';
+declare module "@vaadin/router";
 
-declare class Router extends HTMLElement {
-
-
-}
+declare class Router extends HTMLElement {}

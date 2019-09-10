@@ -1,10 +1,9 @@
-declare module '@vaadin/vaadin-notification/vaadin-notification';
+declare module "@vaadin/vaadin-notification/vaadin-notification";
 
 declare class NotificationElement extends HTMLElement {
+  open(): void;
 
-    open(): void;
+  renderer(root: HTMLElement): void;
 
-    renderer(root: HTMLElement): void
-
-    duration: number;
+  duration: number;
 }
