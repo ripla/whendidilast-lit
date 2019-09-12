@@ -39,15 +39,19 @@ class ItemList extends LitElement {
 
   firstUpdated() {
     this.gridColumns[1].renderer = (root, column, rowData) => {
+      const taskItem = rowData.item as Task;
+
       // Check if there is a container generated with the previous renderer call to update its content instead of recreation
       if (!root.firstElementChild) {
-        const taskItem = rowData.item as Task;
-        const taskDate = html`
-          <div title=${this.formatDate(taskItem.date)}>
-            ${this.humaniseDate(taskItem.date)}
-          </div>
-        `;
-        render(taskDate, root);
+        const taskDate = document.createElement("div");
+        root.appendChild(taskDate);
+      }
+
+      const div: HTMLDivElement | null = root.firstElementChild as HTMLDivElement;
+
+      if (div != null) {
+        div.title = this.formatDate(taskItem.date);
+        div.textContent = this.humaniseDate(taskItem.date);
       }
     };
 
