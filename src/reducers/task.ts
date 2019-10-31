@@ -16,7 +16,7 @@ const task: Reducer<TaskState, RootAction> = (
   action
 ) => {
   switch (action.type) {
-    case ADD_TASK:
+    case ADD_TASK: {
       const newTask: Task = {
         id: action.newId,
         date: action.newDate,
@@ -26,14 +26,14 @@ const task: Reducer<TaskState, RootAction> = (
         ...state,
         tasks: [...state.tasks, newTask]
       };
-
+    }
     case REMOVE_TASK:
       return {
         ...state,
         tasks: state.tasks.filter(task => task.id !== action.id)
       };
 
-    case TASK_DONE:
+    case TASK_DONE: {
       const task = state.tasks.find(task => task.id === action.id);
 
       if (!task) {
@@ -53,7 +53,7 @@ const task: Reducer<TaskState, RootAction> = (
           updatedTask
         ]
       };
-
+    }
     default:
       return state;
   }

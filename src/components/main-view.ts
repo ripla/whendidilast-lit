@@ -7,6 +7,8 @@ import {
   TemplateResult
 } from "lit-element";
 import { render } from "lit-html";
+import { until } from "lit-html/directives/until";
+import { guard } from "lit-html/directives/guard";
 
 import { connect } from "pwa-helpers/connect-mixin.js";
 
@@ -26,11 +28,24 @@ class MainView extends connect(store)(LitElement) {
   @property({ type: Array })
   private tasks: Task[] = [];
 
+  @property({ type: Boolean })
+  private isOffline = false;
+
   static get styles() {
     return [
       css`
         :host {
           display: block;
+        }
+
+        #headerBar {
+          display: flex;
+          align-items: center;
+          padding-right: 1em;
+        }
+
+        title-view {
+          flex-grow: 1;
         }
       `
     ];
@@ -38,7 +53,10 @@ class MainView extends connect(store)(LitElement) {
 
   render() {
     return html`
-      <title-view></title-view>
+      <div id="headerBar">
+        <title-view></title-view>
+        ${guard(this.isOffline, () => until(this.createLoginView()))}
+      </div>
       <new-item-form @newthing=${this.handleNewThing}></new-item-form>
       <item-list
         .tasks=${this.tasks}
@@ -51,6 +69,13 @@ class MainView extends connect(store)(LitElement) {
 
   stateChanged(state: RootState) {
     this.tasks = sortedTasksSelector(state);
+  }
+
+  private async createLoginView() {
+    await import("./login-view");
+    return html`
+      <login-view></login-view>
+    `;
   }
 
   private handleNewThing(e: CustomEvent) {

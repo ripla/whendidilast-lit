@@ -12,10 +12,11 @@
     "build": "webpack --config build/webpack.prod.js",
     "serve": "serve -l 3000 dist",
     "test": "",
-    "check": "eslint src/**/*",
-    "check:fix": "eslint src/**/* --fix"
+    "lint": "tsc --noEmit && eslint src/**/*",
+    "lint:fix": "tsc --noEmit && eslint src/**/* --quiet --fix"
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.2.3",
     "@polymer/iron-icon": "^3.0.1",
     "@polymer/polymer": "^3.1.0",
     "@vaadin/router": "^1.2.1",

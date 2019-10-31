@@ -9,6 +9,8 @@ import app, { AppState } from "./reducers/app";
 import task, { TaskState } from "./reducers/task";
 import { AppAction } from "./actions/app";
 import { TaskAction } from "./actions/task";
+import { UserAction } from './actions/user';
+import { UserState } from './reducers/user';
 
 /**
  * Container for all the states in the app
@@ -16,12 +18,13 @@ import { TaskAction } from "./actions/task";
 export interface RootState {
   app?: AppState;
   task?: TaskState;
+  user?: UserState
 }
 
 /**
  * Union type for all the actions in the app
  */
-export type RootAction = AppAction | TaskAction;
+export type RootAction = AppAction | TaskAction | UserAction;
 
 // try to load persisted state from local storage
 const STATE_ID = "whendidilast.state";

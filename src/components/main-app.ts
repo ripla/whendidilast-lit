@@ -11,6 +11,11 @@ class MainApp extends LitElement {
     `;
   }
 
+  createRenderRoot() {
+    // render without shadow DOM
+    return this;
+  }
+
   constructor() {
     super();
     // To force all event listeners for gestures to be passive.
