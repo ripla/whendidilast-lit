@@ -43,7 +43,7 @@
     "prettier": "^1.18.2",
     "redux-devtools-extension": "^2.13.8",
     "serve": "^11.1.0",
-    "set-value": "^3.0.1",
+    "set-value": "^4.0.1",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
